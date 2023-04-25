@@ -1,22 +1,35 @@
 {
-  "name": "catholic-lorem-ipsum",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.37",
-    "@types/react-dom": "18.0.11",
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "next": "13.3.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.0.4"
-  }
+    "name": "catholic-lorem-ipsum",
+    "version": "0.1.0",
+    "private": false,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@emotion/cache": "^11.10.7",
+        "@emotion/react": "^11.10.6",
+        "@emotion/server": "^11.10.0",
+        "@emotion/styled": "^11.10.6",
+        "@mui/icons-material": "^5.11.16",
+        "@mui/material": "^5.12.1",
+        "next": "13.3.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^14.0.0",
+        "@types/node": "18.15.11",
+        "@types/react": "18.0.35",
+        "@types/react-dom": "18.0.11",
+        "@typescript-eslint/eslint-plugin": "^5.58.0",
+        "@typescript-eslint/parser": "^5.58.0",
+        "eslint": "8.38.0",
+        "eslint-config-next": "13.3.0",
+        "type-fest": "^3.8.0",
+        "typescript": "4.9.5"
+    }
 }
