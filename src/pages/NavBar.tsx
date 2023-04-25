@@ -17,7 +17,7 @@ import {Icon} from "@mui/material";
 import Image from 'next/image';
 
 import logoIcon from "../../public/icons/cliLogo.png";
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const pages = ['Home', 'Prayers', 'API', 'About Us'];
 
@@ -74,13 +74,15 @@ function NavBar() {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                            <Link key={page}
+                                  href={page === 'Home' ? '/' : (page === 'About Us' ? 'AboutUs' : `/${page}`)} passHref>
+                                <Button
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                    {page}
+                                </Button>
+                            </Link>
                         ))}
                     </Box>
                 </Toolbar>

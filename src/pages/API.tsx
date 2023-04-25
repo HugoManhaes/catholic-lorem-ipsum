@@ -16,14 +16,14 @@ import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 
 /**
- * Home page of the app.
+ * API page of the app.
  */
-function Home(): JSX.Element {
+function API(): JSX.Element {
     return (
         <>
             {/* The page's head */}
             <Head>
-                <title>Sample App</title>
+                <title>API</title>
                 <meta name="description" content="This is a site to generate catholic lorem ipsum, which is to say lorem ipsum with latin prayers instead." />
             </Head>
 
@@ -46,7 +46,7 @@ function Home(): JSX.Element {
                     gap={2}
                 >
                     <Typography component="h1" fontSize="24px" fontWeight={500}>
-                        Home
+                        API
                     </Typography>
 
                     <Typography component="h2" fontSize="20px" fontWeight={500}>
@@ -97,4 +97,4 @@ function Home(): JSX.Element {
     );
 }
 
-export default Home;
+export default API;
