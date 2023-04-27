@@ -25,6 +25,7 @@ import {useState} from "react";
 interface Prayers{
     prayerName: string;
     prayerContent: string;
+    wordCount: number;
 }
 
 const prayers: Array<Prayers> = JSON.parse(JSON.stringify(prayersJson));
@@ -97,7 +98,7 @@ function Prayers(): JSX.Element {
                     </Typography>
 
                     <List>
-                        {prayers.map((prayer, index) => (
+                        {prayers.map((prayer) => (
                             <Box key={prayer.prayerName}
                                  bgcolor="#FFFAFA"
                                  sx={{ border: "2px solid black"}}

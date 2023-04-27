@@ -41,7 +41,7 @@ export default function MyApp({
             {/* Head shared by all pages */}
             <Head>
                 {/* Base title (should be overridden by each page) */}
-                <title>Sample App</title>
+                <title>Catholic Lorem Ipsum</title>
 
                 {/* Viewport */}
                 <meta

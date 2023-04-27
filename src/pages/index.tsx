@@ -12,8 +12,129 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import Avatar from '@mui/material/Avatar';
+import {Grid, Input, Slider, TextField} from '@mui/material';
+
+import prayersJson from '../../public/prayers.json';
+import {useState} from "react";
+
+interface Prayer{
+    prayerName: string;
+    prayerContent: string;
+    wordCount: number;
+}
+
+const prayers: Array<Prayer> = JSON.parse(JSON.stringify(prayersJson));
+
+console.log(prayers);
+
+function CatholicLoremIpsum({paragraphs}: {paragraphs: number | string | Array<number | string>}): JSX.Element{
+    const maxWords = 150;
+    const minWords = 20;
+
+    let finalText: string[] = [];
+
+    for(let i = 0; i < paragraphs; i++){
+        let currentParagraphWordCount = Math.floor(Math.random() * (maxWords - minWords) + minWords);
+
+        let currentWordCount = 0;
+        let currentParagraphText = "";
+
+        while(currentWordCount < currentParagraphWordCount){
+            let randomIndex = Math.floor(Math.random() * prayers.length);
+
+            currentParagraphText += prayers[randomIndex].prayerContent + " ";
+
+            currentWordCount += prayers[randomIndex].wordCount;
+        }
+
+        finalText[i] = currentParagraphText;
+    }
+
+    return (
+        <Box width="100%"
+             maxWidth="800px"
+             height="100%"
+             display="flex"
+             flexDirection="column"
+             mx="auto"
+        >
+            {finalText.map((text, index) => (
+                <Typography key={index} component="p" fontSize="16px" sx={{marginBottom: 3}}>
+                    {text}
+                </Typography>
+            ))}
+        </Box>
+    );
+}
+function CatholicLoremIpsumBox() {
+    const [value, setValue] = React.useState<number | string | Array<number | string>>(
+        0,
+    );
+
+    const handleSliderChange = (event: Event, newValue: number | number[]) => {
+        setValue(newValue);
+    };
+
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value === '' ? '' : Number(event.target.value));
+    };
+
+    const handleBlur = () => {
+        if (value < 0) {
+            setValue(0);
+        } else if (value > 150) {
+            setValue(150);
+        }
+    };
+
+    return (
+        <Box>
+            <Box display= "flex"
+                 justifyContent= "flex-start"
+                 alignItems= "center"
+                 width="100%"
+                 marginBottom={3}>
+                <Typography component="p" fontSize="16px">
+                    How many paragraphs?
+                </Typography>
+
+                <Box sx={{ width: 250 , marginLeft: 2}}>
+                    <Grid container spacing={2} alignItems="center">
+                        <Grid item xs>
+                            <Slider
+                                value={typeof value === 'number' ? value : 0}
+                                onChange={handleSliderChange}
+                                aria-labelledby="input-slider"
+                                defaultValue={0}
+                                valueLabelDisplay="auto"
+                                step={1}
+                                min={0}
+                                max={150}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Input
+                                value={value}
+                                size="small"
+                                onChange={handleInputChange}
+                                onBlur={handleBlur}
+                                inputProps={{
+                                    step: 1,
+                                    min: 0,
+                                    max: 150,
+                                    type: 'number',
+                                    'aria-labelledby': 'input-slider',
+                                }}
+                                sx={{backgroundColor: "#FFFAFA"}}
+                            />
+                        </Grid>
+                    </Grid>
+                </Box>
+            </Box>
+            <CatholicLoremIpsum paragraphs={value}/>
+        </Box>
+    );
+}
 
 /**
  * Home page of the app.
@@ -23,7 +144,7 @@ function Home(): JSX.Element {
         <>
             {/* The page's head */}
             <Head>
-                <title>Sample App</title>
+                <title>Catholic Lorem Ipsum</title>
                 <meta name="description" content="This is a site to generate catholic lorem ipsum, which is to say lorem ipsum with latin prayers instead." />
             </Head>
 
@@ -45,49 +166,15 @@ function Home(): JSX.Element {
                     p={3}
                     gap={2}
                 >
-                    <Typography component="h1" fontSize="24px" fontWeight={500}>
-                        Home
+                    <Typography component="h1" textAlign="center" fontSize="50px" fontWeight={500}>
+                        Catholic Lorem Ipsum
                     </Typography>
 
                     <Typography component="h2" fontSize="20px" fontWeight={500}>
-                        Section 1
+                        Generate Catholic Lorem Ipsum:
                     </Typography>
 
-                    <Typography component="p" fontSize="16px">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel eros vel dui eleifend mollis.
-                        Donec lorem dolor, porta at nisi ornare, mollis consequat risus. Aliquam id lectus metus. Cras
-                        posuere justo vel feugiat ullamcorper. Maecenas ullamcorper purus a dapibus aliquam. Donec eu
-                        commodo nulla, ut interdum nisl. Donec varius mauris vel nibh pharetra malesuada. Praesent interdum
-                        sagittis arcu, sit amet fermentum arcu egestas sit amet. Phasellus sit amet enim vitae arcu aliquet
-                        ultrices ut a ligula. Praesent luctus tellus vel suscipit imperdiet. Integer efficitur eget felis
-                        sed consectetur. Fusce venenatis massa nec nisi tincidunt vestibulum. Integer malesuada elementum
-                        turpis in bibendum. Phasellus dapibus vestibulum diam sed pretium. Quisque in dolor elit. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Typography>
-
-                    <Typography component="h2" fontSize="20px" fontWeight={500}>
-                        Section 2
-                    </Typography>
-
-                    <Typography component="p" fontSize="16px">
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class
-                        aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas
-                        fringilla, metus vitae auctor hendrerit, nisi ante consequat justo, ac luctus mauris purus et eros.
-                        Nunc a eros non leo blandit rutrum. Ut vulputate, arcu in congue imperdiet, ligula metus aliquam
-                        odio, a tempus eros erat id ligula. Curabitur ac lorem interdum, vehicula mi eget, tristique lectus.
-                        Donec molestie non mi ut sagittis. Pellentesque tincidunt bibendum ultricies. Donec at dignissim
-                        ipsum, at fringilla justo. Quisque imperdiet sem purus, iaculis vestibulum diam fermentum at. Nunc
-                        egestas dictum bibendum.
-                    </Typography>
-
-                    <Typography component="p" fontSize="16px">
-                        Cras fringilla efficitur auctor. Nullam elementum, massa vel tempor faucibus, risus lacus tincidunt
-                        massa, nec vehicula mauris dolor et elit. Nulla in tempor turpis. Aenean ac iaculis ligula, a
-                        vehicula nisl. Sed eleifend, elit in hendrerit malesuada, sem metus mattis tellus, ac accumsan
-                        sapien ligula vitae neque. Nulla vel felis sit amet ipsum ultrices pharetra. Sed ultrices nibh
-                        metus, eu vulputate tortor consectetur non. Nullam porta, nisi ut blandit viverra, metus nisl
-                        lobortis erat, sed egestas tortor lacus sollicitudin diam. Nullam quis metus nibh.
-                    </Typography>
+                    <CatholicLoremIpsumBox/>
                 </Box>
 
                 {/* Footer */}
