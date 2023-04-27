@@ -1,26 +1,26 @@
 [
   {
-    "Prayer Name": "Pater Noster",
-    "Prayer Content": "Pater noster qui es in caelis: sanctificetur Nomen Tuum; adveniat Regnum Tuum; fiat voluntas Tua, sicut in caelo, et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a Malo. Amen."
+    "prayerName": "Pater Noster",
+    "prayerContent": "Pater noster qui es in caelis: sanctificetur Nomen Tuum; adveniat Regnum Tuum; fiat voluntas Tua, sicut in caelo, et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a Malo. Amen."
   },
   {
-    "Prayer Name": "Ave Maria",
-    "Prayer Content": "Ave, Maria, gratia plena, Dominus tecum; benedicta tu in mulieribus, et benedictus fructus ventris tui Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae, Amen!"
+    "prayerName": "Ave Maria",
+    "prayerContent": "Ave, Maria, gratia plena, Dominus tecum; benedicta tu in mulieribus, et benedictus fructus ventris tui Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae, Amen!"
   },
   {
-    "Prayer Name": "Salve Regina",
-    "Prayer Content": "Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus, exsules filii Hevae, Ad te suspiramus, gementes et flentes, in hac lacrimarum valle. Eia, ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedíctum fructum ventris tui, nobis post hoc exilium ostende. O clemens, O pia, O dulcis Virgo Maria. Ora pro nobis sancta Dei Genetrix. Ut digni efficiamur promissionibus Christi. Amen."
+    "prayerName": "Salve Regina",
+    "prayerContent": "Salve, Regina, Mater misericordiae, vita, dulcedo, et spes nostra, salve. Ad te clamamus, exsules filii Hevae, Ad te suspiramus, gementes et flentes, in hac lacrimarum valle. Eia, ergo, advocata nostra, illos tuos misericordes oculos ad nos converte. Et Iesum, benedíctum fructum ventris tui, nobis post hoc exilium ostende. O clemens, O pia, O dulcis Virgo Maria. Ora pro nobis sancta Dei Genetrix. Ut digni efficiamur promissionibus Christi. Amen."
   },
   {
-    "Prayer Name": "Anima Christi",
-    "Prayer Content": "Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me. O bone Iesu, exaudi me. Intra tua vulnera absconde me. Ne permittas me separari a te. Ab hoste maligno defende me. In hora mortis meæ voca me. Et iube me venire ad te, ut cum Sanctis tuis laudem te in saecula saeculorum. Amen."
+    "prayerName": "Anima Christi",
+    "prayerContent": "Anima Christi, sanctifica me. Corpus Christi, salva me. Sanguis Christi, inebria me. Aqua lateris Christi, lava me. Passio Christi, conforta me. O bone Iesu, exaudi me. Intra tua vulnera absconde me. Ne permittas me separari a te. Ab hoste maligno defende me. In hora mortis meæ voca me. Et iube me venire ad te, ut cum Sanctis tuis laudem te in saecula saeculorum. Amen."
   },
   {
-    "Prayer Name": "Credo",
-    "Prayer Content": "Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae. Et in Iesum Christum, Fílium eius unicum, Dominum nostrum, qui conceptus est de Spíritu Sancto, natus ex Maria Virgine, passus sub Pontio Pilato, crucifíxus, mortuus, et sepultus, descendit ad ínferos, tertia die resurrexit a mortuis, ascendit ad caelos, sedet ad dexteram Dei Patris omnipotentis, inde venturus est iudicare vivos et mortuos. Credo in Spíritum Sanctum, sanctam Ecclesiam catholicam, sanctorum communionem, remissionem peccatorum, carnis resurrectionem, vitam aeternam. Amen."
+    "prayerName": "Credo",
+    "prayerContent": "Credo in Deum Patrem omnipotentem, Creatorem caeli et terrae. Et in Iesum Christum, Fílium eius unicum, Dominum nostrum, qui conceptus est de Spíritu Sancto, natus ex Maria Virgine, passus sub Pontio Pilato, crucifíxus, mortuus, et sepultus, descendit ad ínferos, tertia die resurrexit a mortuis, ascendit ad caelos, sedet ad dexteram Dei Patris omnipotentis, inde venturus est iudicare vivos et mortuos. Credo in Spíritum Sanctum, sanctam Ecclesiam catholicam, sanctorum communionem, remissionem peccatorum, carnis resurrectionem, vitam aeternam. Amen."
   },
   {
-    "Prayer Name": "Sanctus",
-    "Prayer Content": "Sanctus, Sanctus, Sanctus, Dominus Deus Sabaoth! Pleni sunt Caeli et Terra gloria Tua. Hosanna in excelsis! Benedictus, qui venit in Nomine Domini. Hosanna in excelsis!"
+    "prayerName": "Sanctus",
+    "prayerContent": "Sanctus, Sanctus, Sanctus, Dominus Deus Sabaoth! Pleni sunt Caeli et Terra gloria Tua. Hosanna in excelsis! Benedictus, qui venit in Nomine Domini. Hosanna in excelsis!"
   }
 ]

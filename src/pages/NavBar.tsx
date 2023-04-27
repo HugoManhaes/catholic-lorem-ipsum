@@ -75,7 +75,8 @@ function NavBar() {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Link key={page}
-                                  href={page === 'Home' ? '/' : (page === 'About Us' ? 'AboutUs' : `/${page}`)} passHref>
+                                  href={page === 'Home' ? '/' : (page === 'About Us' ? 'AboutUs' : `/${page}`)} passHref
+                                  style={{textDecoration: 'none'}}>
                                 <Button
                                     onClick={handleCloseNavMenu}
                                     sx={{ my: 2, color: 'white', display: 'block' }}

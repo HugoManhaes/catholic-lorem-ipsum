@@ -8,6 +8,10 @@ import theme from "@/themes/default_theme";
 import type { AppProps } from "next/app";
 import type { EmotionCache } from "@emotion/cache";
 import NavBar from "./NavBar";
+import logoIcon from "../../public/icons/cliLogo.png";
+import Image from "next/image";
+import Box from "@mui/material/Box";
+import * as React from "react";
 
 
 // Client-side Emotion cache, shared for the whole session of the user in the browser. This is only used if the server
@@ -46,6 +50,15 @@ export default function MyApp({
                     content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"  // eslint-disable-line max-len
                 />
             </Head>
+
+
+            <Image src={logoIcon}
+                   alt="site logo"
+                   fill={true}
+                   style={{marginTop: 100,
+                           opacity: 0.1}}
+            />
+
 
             {/* Content */}
             <div>

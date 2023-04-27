@@ -66,7 +66,7 @@ const themeBase = createTheme({
             main: "#c62828",
         },
         background: {
-            default: "#FFFFFF",
+            default: "#FAF9CA",
         },
         neutralGrey: {
             main: grey[300],

@@ -14,17 +14,64 @@ import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+
+import {Collapse, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
+import prayersJson from '../../public/prayers.json';
+import {useState} from "react";
+
+interface Prayers{
+    prayerName: string;
+    prayerContent: string;
+}
+
+const prayers: Array<Prayers> = JSON.parse(JSON.stringify(prayersJson));
+
+function PrayerItem({prayer}: {prayer: Prayers}): JSX.Element {
+    const [checked, setChecked] = useState(false);
+    return (
+        <ListItem>
+            <Box display="block"
+                 width="100%">
+                <Box display= "flex"
+                     justifyContent= "space-between"
+                     alignItems= "center"
+                     width="100%">
+                    <Typography component="h2" fontSize="24px">{prayer.prayerName}</Typography>
+                    <IconButton
+                        aria-label="expand row"
+                        size="small"
+                        onClick={() => {setChecked(!checked)}}
+                    >
+                        {checked ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                    </IconButton>
+                </Box>
+                <Collapse in={checked} timeout="auto" unmountOnExit>
+                    <List component="div" disablePadding>
+                        <ListItem>
+                            <ListItemText primary={prayer.prayerContent} />
+                        </ListItem>
+                    </List>
+                </Collapse>
+            </Box>
+        </ListItem>
+    );
+}
 
 /**
  * Prayers page of the app.
  */
 function Prayers(): JSX.Element {
+    const [open, setOpen] = React.useState(false);
+
     return (
         <>
             {/* The page's head */}
             <Head>
                 <title>Prayers</title>
-                <meta name="description" content="This is a site to generate catholic lorem ipsum, which is to say lorem ipsum with latin prayers instead." />
+                <meta name="description" content="This is the page that contains the list of latin prayers used in the catholic lorem ipsum." />
             </Head>
 
             {/* Content */}
@@ -45,49 +92,20 @@ function Prayers(): JSX.Element {
                     p={3}
                     gap={2}
                 >
-                    <Typography component="h1" fontSize="24px" fontWeight={500}>
+                    <Typography component="h1" textAlign="center" fontSize="50px" fontWeight={500}>
                         Prayers
                     </Typography>
 
-                    <Typography component="h2" fontSize="20px" fontWeight={500}>
-                        Section 1
-                    </Typography>
-
-                    <Typography component="p" fontSize="16px">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel eros vel dui eleifend mollis.
-                        Donec lorem dolor, porta at nisi ornare, mollis consequat risus. Aliquam id lectus metus. Cras
-                        posuere justo vel feugiat ullamcorper. Maecenas ullamcorper purus a dapibus aliquam. Donec eu
-                        commodo nulla, ut interdum nisl. Donec varius mauris vel nibh pharetra malesuada. Praesent interdum
-                        sagittis arcu, sit amet fermentum arcu egestas sit amet. Phasellus sit amet enim vitae arcu aliquet
-                        ultrices ut a ligula. Praesent luctus tellus vel suscipit imperdiet. Integer efficitur eget felis
-                        sed consectetur. Fusce venenatis massa nec nisi tincidunt vestibulum. Integer malesuada elementum
-                        turpis in bibendum. Phasellus dapibus vestibulum diam sed pretium. Quisque in dolor elit. Lorem
-                        ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Typography>
-
-                    <Typography component="h2" fontSize="20px" fontWeight={500}>
-                        Section 2
-                    </Typography>
-
-                    <Typography component="p" fontSize="16px">
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class
-                        aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas
-                        fringilla, metus vitae auctor hendrerit, nisi ante consequat justo, ac luctus mauris purus et eros.
-                        Nunc a eros non leo blandit rutrum. Ut vulputate, arcu in congue imperdiet, ligula metus aliquam
-                        odio, a tempus eros erat id ligula. Curabitur ac lorem interdum, vehicula mi eget, tristique lectus.
-                        Donec molestie non mi ut sagittis. Pellentesque tincidunt bibendum ultricies. Donec at dignissim
-                        ipsum, at fringilla justo. Quisque imperdiet sem purus, iaculis vestibulum diam fermentum at. Nunc
-                        egestas dictum bibendum.
-                    </Typography>
-
-                    <Typography component="p" fontSize="16px">
-                        Cras fringilla efficitur auctor. Nullam elementum, massa vel tempor faucibus, risus lacus tincidunt
-                        massa, nec vehicula mauris dolor et elit. Nulla in tempor turpis. Aenean ac iaculis ligula, a
-                        vehicula nisl. Sed eleifend, elit in hendrerit malesuada, sem metus mattis tellus, ac accumsan
-                        sapien ligula vitae neque. Nulla vel felis sit amet ipsum ultrices pharetra. Sed ultrices nibh
-                        metus, eu vulputate tortor consectetur non. Nullam porta, nisi ut blandit viverra, metus nisl
-                        lobortis erat, sed egestas tortor lacus sollicitudin diam. Nullam quis metus nibh.
-                    </Typography>
+                    <List>
+                        {prayers.map((prayer, index) => (
+                            <Box key={prayer.prayerName}
+                                 bgcolor="#FFFAFA"
+                                 sx={{ border: "2px solid black"}}
+                                 style={{marginBottom: 5}}>
+                                <PrayerItem prayer={prayer}/>
+                            </Box>
+                        ))}
+                    </List>
                 </Box>
 
                 {/* Footer */}
