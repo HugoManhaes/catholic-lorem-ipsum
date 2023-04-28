@@ -39,11 +39,16 @@ function NavBar() {
 
                     <Box position='relative'
                          minWidth='64px'
-                         minHeight='64px'>
+                         minHeight='64px'
+                         sx={{marginLeft: {
+                                 xs: "-14px",
+                                 md: "-20px"
+                             },
+                         }}
+                    >
                         <Image src={logoIcon}
                                alt="site logo"
                                fill={true}
-                               style={{marginLeft: -20}}
                         />
                     </Box>
                     <Box>
