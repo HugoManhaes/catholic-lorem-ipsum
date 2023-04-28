@@ -55,7 +55,7 @@ function API(): JSX.Element {
                     </Typography>
 
                     <Typography component="p" fontSize="16px">
-                        To use the Catholic Lorem Ipsum API, here's what you should do:
+                        To use the Catholic Lorem Ipsum API, here&apos;s what you should do:
                     </Typography>
 
                     <Box width="100%"

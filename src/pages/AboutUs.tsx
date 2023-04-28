@@ -50,9 +50,9 @@ function AboutUs(): JSX.Element {
                     </Typography>
 
                     <Typography component="p" fontSize="16px">
-                        I'm Hugo Rodrigues Manhães. I'm a catholic first and programmer second. I've done this website to help catholic
+                        I&apos;m Hugo Rodrigues Manhães. I&apos;m a catholic first and programmer second. I&apos;ve done this website to help catholic
                         programmers to generate placeholder text for their various placeholding needs, by providing lorem ipsum, but with
-                        latin catholic prayers. I've also done this as a test to join Glau, a startup that provides AI-based essay corrections.
+                        latin catholic prayers. I&apos;ve also done this as a test to join Glau, a startup that provides AI-based essay corrections.
                     </Typography>
                 </Box>
 
