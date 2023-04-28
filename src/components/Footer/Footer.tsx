@@ -32,7 +32,7 @@ function Footer({ sx = [] }: FooterProps): JSX.Element {
             sx={sx}
         >
             <Typography fontSize="14px">
-                © All rights reserved.
+                Hugo Rodrigues Manhães © All rights reserved.
             </Typography>
         </Box>
     );

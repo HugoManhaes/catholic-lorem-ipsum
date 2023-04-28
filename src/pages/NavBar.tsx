@@ -33,7 +33,7 @@ function NavBar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{ background: '#008F11' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 

@@ -13,7 +13,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import {Grid, Input, Slider, TextField} from '@mui/material';
-
+import CatholicLoremIpsum from './CatholicLoremIpsum';
 import prayersJson from '../../public/prayers.json';
 import {useState} from "react";
 
@@ -24,48 +24,6 @@ interface Prayer{
 }
 
 const prayers: Array<Prayer> = JSON.parse(JSON.stringify(prayersJson));
-
-console.log(prayers);
-
-function CatholicLoremIpsum({paragraphs}: {paragraphs: number | string | Array<number | string>}): JSX.Element{
-    const maxWords = 150;
-    const minWords = 20;
-
-    let finalText: string[] = [];
-
-    for(let i = 0; i < paragraphs; i++){
-        let currentParagraphWordCount = Math.floor(Math.random() * (maxWords - minWords) + minWords);
-
-        let currentWordCount = 0;
-        let currentParagraphText = "";
-
-        while(currentWordCount < currentParagraphWordCount){
-            let randomIndex = Math.floor(Math.random() * prayers.length);
-
-            currentParagraphText += prayers[randomIndex].prayerContent + " ";
-
-            currentWordCount += prayers[randomIndex].wordCount;
-        }
-
-        finalText[i] = currentParagraphText;
-    }
-
-    return (
-        <Box width="100%"
-             maxWidth="800px"
-             height="100%"
-             display="flex"
-             flexDirection="column"
-             mx="auto"
-        >
-            {finalText.map((text, index) => (
-                <Typography key={index} component="p" fontSize="16px" sx={{marginBottom: 3}}>
-                    {text}
-                </Typography>
-            ))}
-        </Box>
-    );
-}
 function CatholicLoremIpsumBox() {
     const [value, setValue] = React.useState<number | string | Array<number | string>>(
         0,
@@ -131,7 +89,15 @@ function CatholicLoremIpsumBox() {
                     </Grid>
                 </Box>
             </Box>
-            <CatholicLoremIpsum paragraphs={value}/>
+            <Box width="100%"
+                 maxWidth="800px"
+                 height="100%"
+                 display="flex"
+                 flexDirection="column"
+                 bgcolor="#008F11"
+                 mx="auto">
+                <CatholicLoremIpsum paragraphs={value}/>
+            </Box>
         </Box>
     );
 }

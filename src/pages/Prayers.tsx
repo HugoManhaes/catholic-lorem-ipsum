@@ -40,19 +40,19 @@ function PrayerItem({prayer}: {prayer: Prayers}): JSX.Element {
                      justifyContent= "space-between"
                      alignItems= "center"
                      width="100%">
-                    <Typography component="h2" fontSize="24px">{prayer.prayerName}</Typography>
+                    <Typography component="h2" color="#FFFAFA" fontSize="24px">{prayer.prayerName}</Typography>
                     <IconButton
                         aria-label="expand row"
                         size="small"
                         onClick={() => {setChecked(!checked)}}
                     >
-                        {checked ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                        {checked ? <KeyboardArrowUpIcon style={{color: "#FFFAFA"}}/> : <KeyboardArrowDownIcon style={{color: "#FFFAFA"}}/>}
                     </IconButton>
                 </Box>
                 <Collapse in={checked} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         <ListItem>
-                            <ListItemText primary={prayer.prayerContent} />
+                            <Typography component="p" color="#FFFAFA" fontSize="16px">{prayer.prayerContent}</Typography>
                         </ListItem>
                     </List>
                 </Collapse>
@@ -100,7 +100,7 @@ function Prayers(): JSX.Element {
                     <List>
                         {prayers.map((prayer) => (
                             <Box key={prayer.prayerName}
-                                 bgcolor="#FFFAFA"
+                                 bgcolor="#008F11"
                                  sx={{ border: "2px solid black"}}
                                  style={{marginBottom: 5}}>
                                 <PrayerItem prayer={prayer}/>
