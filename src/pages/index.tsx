@@ -59,15 +59,15 @@ function CatholicLoremIpsumBox() {
         }
     };
 
-    let data: string[] = [];
+    const [data, setData] = React.useState<string[]>([]);
 
     const fetchAddress: string = 'https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=';
 
-    const fetchAddress2: string = '/api/catholic-lorem-ipsum?paragraphs=';
-
-    const handleGenerateLoremIpsum = async (pValue: number | string | Array<number | string>) => {
+    const generateCatholicLoremIpsum = async (pValue: number | string | Array<number | string>) => {
         const response = await fetch(fetchAddress + pValue);
-        data = await response.json();
+        const myResponse = await response.json() as { paragraphs: string[] };
+
+        setData(myResponse.paragraphs);;
     }
 
     return (
@@ -114,7 +114,7 @@ function CatholicLoremIpsumBox() {
                     </Grid>
                 </Box>
                 <Button
-                    onClick={() => handleGenerateLoremIpsum(value)}
+                    onClick={() => generateCatholicLoremIpsum(value)}
                     sx={{ my: 2,
                           color: "white",
                           backgroundColor: "#008F11",

@@ -22,14 +22,12 @@ import {useEffect, useState} from "react";
  */
 function API(): JSX.Element {
 
-    let data:string[] = [];
+    const [data, setData] = React.useState<string[]>([]);
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await fetch('https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=5');
-            data = await response.json();
-        }
-        fetchData();
+        const response = fetch('https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=5').then((response) => {
+             response.json().then((myData) => setData(myData.paragraphs));
+        });
     }, []);
 
     return (

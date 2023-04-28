@@ -17,7 +17,7 @@ interface Prayers{
 
 const prayers: Array<Prayers> = JSON.parse(JSON.stringify(prayersJson));
 
-function CatholicLoremIpsum(paragraphs: number): string[]{
+function generateCatholicLoremIpsum(paragraphs: number): string[]{
     const maxWords = 150;
     const minWords = 20;
 
@@ -46,7 +46,7 @@ function CatholicLoremIpsum(paragraphs: number): string[]{
 export default function handler(req: NextApiRequest, res: NextApiResponse<RequestData>): void {
     const query = req.query as {paragraphs: string};
 
-    const requestData: RequestData = {paragraphs: CatholicLoremIpsum(parseInt(query.paragraphs))};
+    const requestData: RequestData = {paragraphs: generateCatholicLoremIpsum(parseInt(query.paragraphs))};
 
     res.setHeader('Access-Control-Allow-Origin', '*');
 
