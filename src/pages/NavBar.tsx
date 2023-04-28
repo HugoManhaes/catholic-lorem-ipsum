@@ -62,7 +62,7 @@ function NavBar() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: 'block', md: 'none' },
+                                display: "none"
                             }}
                         >
                             {pages.map((page) => (
