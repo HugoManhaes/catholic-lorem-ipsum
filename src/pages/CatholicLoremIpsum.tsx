@@ -21,7 +21,7 @@ function CatholicLoremIpsum({data} : {data: string[]}): JSX.Element{
              flexDirection="column"
              mx="auto"
         >
-            {data.map((text, index) => (
+            {data && data.map((text, index) => (
                 <Typography key={index} component="p" fontSize="16px" sx={{marginLeft: 0.5, marginBottom: 3, color: "#FFFAFA"}}>
                     {text}
                 </Typography>
