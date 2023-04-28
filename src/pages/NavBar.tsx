@@ -46,7 +46,7 @@ function NavBar() {
                                style={{marginLeft: -20}}
                         />
                     </Box>
-                    <Box sx={{display: "none" }}>
+                    <Box>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
@@ -61,9 +61,6 @@ function NavBar() {
                             }}
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
-                            sx={{
-                                display: "none"
-                            }}
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
@@ -72,7 +69,7 @@ function NavBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{ display: "flex" }}>
                         {pages.map((page) => (
                             <Link key={page}
                                   href={page === 'Home' ? '/' : (page === 'About Us' ? 'AboutUs' : `/${page}`)} passHref
