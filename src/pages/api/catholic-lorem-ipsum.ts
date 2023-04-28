@@ -6,7 +6,7 @@ import * as React from "react";
 import prayersJson from "../../../public/prayers.json";
 
 interface RequestData {
-  paragraphs: string[]
+    paragraphs: string[]
 }
 
 interface Prayers{
@@ -47,6 +47,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Reques
     const query = req.query as {paragraphs: string};
 
     const requestData: RequestData = {paragraphs: CatholicLoremIpsum(parseInt(query.paragraphs))};
+
+    res.setHeader('Access-Control-Allow-Origin', '*');
 
     res.status(200).json(requestData);
 }

@@ -16,6 +16,7 @@ import {Grid, Input, Slider, TextField} from '@mui/material';
 import CatholicLoremIpsum from './CatholicLoremIpsum';
 import prayersJson from '../../public/prayers.json';
 import {useState} from "react";
+import * as ReactDOM from "react-dom";
 
 interface Prayer{
     prayerName: string;
@@ -24,6 +25,19 @@ interface Prayer{
 }
 
 const prayers: Array<Prayer> = JSON.parse(JSON.stringify(prayersJson));
+
+function GenerateLoremIpsum({data} : {data: string[]}) {
+    return (<Box width="100%"
+                 maxWidth="800px"
+                 height="100%"
+                 display="flex"
+                 flexDirection="column"
+                 bgcolor="#008F11"
+                 mx="auto">
+        <CatholicLoremIpsum data={data}/>
+    </Box>);
+}
+
 function CatholicLoremIpsumBox() {
     const [value, setValue] = React.useState<number | string | Array<number | string>>(
         0,
@@ -44,6 +58,17 @@ function CatholicLoremIpsumBox() {
             setValue(150);
         }
     };
+
+    let data: string[] = [];
+
+    const fetchAddress: string = 'https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=';
+
+    const fetchAddress2: string = '/api/catholic-lorem-ipsum?paragraphs=';
+
+    const handleGenerateLoremIpsum = async (pValue: number | string | Array<number | string>) => {
+        const response = await fetch(fetchAddress + pValue);
+        data = await response.json();
+    }
 
     return (
         <Box>
@@ -88,16 +113,20 @@ function CatholicLoremIpsumBox() {
                         </Grid>
                     </Grid>
                 </Box>
+                <Button
+                    onClick={() => handleGenerateLoremIpsum(value)}
+                    sx={{ my: 2,
+                          color: "white",
+                          backgroundColor: "#008F11",
+                          marginLeft: 1,
+                          '&:hover': {
+                            backgroundColor: 'rgba(0, 143, 17, 0.8)',
+                          }}}
+                >
+                    Generate
+                </Button>
             </Box>
-            <Box width="100%"
-                 maxWidth="800px"
-                 height="100%"
-                 display="flex"
-                 flexDirection="column"
-                 bgcolor="#008F11"
-                 mx="auto">
-                <CatholicLoremIpsum paragraphs={value}/>
-            </Box>
+            <GenerateLoremIpsum data={data}/>
         </Box>
     );
 }

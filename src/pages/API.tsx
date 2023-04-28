@@ -15,11 +15,23 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import Avatar from '@mui/material/Avatar';
 import CatholicLoremIpsum from "@/pages/CatholicLoremIpsum";
+import {useEffect, useState} from "react";
 
 /**
  * API page of the app.
  */
 function API(): JSX.Element {
+
+    let data:string[] = [];
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=5');
+            data = await response.json();
+        }
+        fetchData();
+    }, []);
+
     return (
         <>
             {/* The page's head */}
@@ -96,7 +108,7 @@ function API(): JSX.Element {
                          flexDirection="column"
                          bgcolor="#008F11"
                          mx="auto">
-                        <CatholicLoremIpsum paragraphs={5}/>
+                        <CatholicLoremIpsum data={data}/>
                     </Box>
                 </Box>
 
