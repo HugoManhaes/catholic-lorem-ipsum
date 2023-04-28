@@ -46,7 +46,7 @@ function NavBar() {
                                style={{marginLeft: -20}}
                         />
                     </Box>
-                    <Box sx={{ flexGrow: 1, display: "none" }}>
+                    <Box sx={{display: "none" }}>
                         <Menu
                             id="menu-appbar"
                             anchorEl={anchorElNav}
