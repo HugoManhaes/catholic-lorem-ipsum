@@ -77,12 +77,12 @@ export default class MyDocument extends Document<MyDocumentInitialProps> {
 
         // Create a new Emotion cache instance. It will be used to extract the critical styles for the HTML.
         const cache = createEmotionCache();
-        const { extractCriticalToChunks } = createEmotionServer(cache);
+        const { extractCriticalToChunks } = createEmotionServer(cache); // eslint-disable-line @typescript-eslint/unbound-method, max-len
 
         // Define a new `renderPage` function. In it, we are going to pass the created emotion cache to the client.
         ctx.renderPage = () => (
             originalRenderPage({
-                enhanceApp: (App: any) => (
+                enhanceApp: (App: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     function EnhanceApp(props) {
                         return <App emotionCache={cache} {...props} />;
                     }

@@ -8,12 +8,13 @@
 
 // Material-UI:
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 // Local:
 
 // Type:
 import type { FooterProps } from "./FooterProps";
-import Typography from "@mui/material/Typography";
+
 //======================================================================================================================
 // endregion
 

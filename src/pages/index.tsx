@@ -1,135 +1,29 @@
+import * as React from "react";
+
 import Head from "next/head";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+
+import CatholicLoremIpsumBox from "@/components/CatholicLoremIpsumBox";
 import Footer from "@/components/Footer";
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import AdbIcon from '@mui/icons-material/Adb';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import {Grid, Input, Slider, TextField} from '@mui/material';
-import CatholicLoremIpsum from './CatholicLoremIpsum';
-import prayersJson from '../../public/prayers.json';
-import {useState} from "react";
-import * as ReactDOM from "react-dom";
 
-interface Prayer{
-    prayerName: string;
-    prayerContent: string;
-    wordCount: number;
-}
-
-const prayers: Array<Prayer> = JSON.parse(JSON.stringify(prayersJson));
-
-function GenerateLoremIpsum({data} : {data: string[]}) {
-    return (<Box width="100%"
-                 maxWidth="800px"
-                 height="100%"
-                 display="flex"
-                 flexDirection="column"
-                 bgcolor="#008F11"
-                 mx="auto">
-        <CatholicLoremIpsum data={data}/>
-    </Box>);
-}
-
-function CatholicLoremIpsumBox() {
-    const [value, setValue] = React.useState<number | string | Array<number | string>>(
-        0,
-    );
-
-    const handleSliderChange = (event: Event, newValue: number | number[]) => {
-        setValue(newValue);
-    };
-
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setValue(event.target.value === '' ? '' : Number(event.target.value));
-    };
-
-    const handleBlur = () => {
-        if (value < 0) {
-            setValue(0);
-        } else if (value > 150) {
-            setValue(150);
-        }
-    };
-
-    const [data, setData] = React.useState<string[]>([]);
-
-    const fetchAddress: string = 'https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=';
-
-    const generateCatholicLoremIpsum = async (pValue: number | string | Array<number | string>) => {
-        const response = await fetch(fetchAddress + pValue);
-        const myResponse = await response.json() as { paragraphs: string[] };
-
-        setData(myResponse.paragraphs);;
-    }
-
+/*
+function GenerateLoremIpsum({ data }: { data: string[] }): JSX.Element {
     return (
-        <Box>
-            <Box display= "flex"
-                 justifyContent= "flex-start"
-                 alignItems= "center"
-                 width="100%"
-                 marginBottom={3}>
-                <Typography component="p" fontSize="16px">
-                    How many paragraphs?
-                </Typography>
-
-                <Box sx={{ width: 250 , marginLeft: 2}}>
-                    <Grid container spacing={2} alignItems="center">
-                        <Grid item xs>
-                            <Slider
-                                value={typeof value === 'number' ? value : 0}
-                                onChange={handleSliderChange}
-                                aria-labelledby="input-slider"
-                                defaultValue={0}
-                                valueLabelDisplay="auto"
-                                step={1}
-                                min={0}
-                                max={150}
-                            />
-                        </Grid>
-                        <Grid item>
-                            <Input
-                                value={value}
-                                size="small"
-                                onChange={handleInputChange}
-                                onBlur={handleBlur}
-                                inputProps={{
-                                    step: 1,
-                                    min: 0,
-                                    max: 150,
-                                    type: 'number',
-                                    'aria-labelledby': 'input-slider',
-                                }}
-                                sx={{backgroundColor: "#FFFAFA"}}
-                            />
-                        </Grid>
-                    </Grid>
-                </Box>
-                <Button
-                    onClick={() => generateCatholicLoremIpsum(value)}
-                    sx={{ my: 2,
-                          color: "white",
-                          backgroundColor: "#008F11",
-                          marginLeft: 1,
-                          '&:hover': {
-                            backgroundColor: 'rgba(0, 143, 17, 0.8)',
-                          }}}
-                >
-                    Generate
-                </Button>
-            </Box>
-            <GenerateLoremIpsum data={data}/>
-        </Box>
-    );
+        <Box
+            width="100%"
+            maxWidth="800px"
+            height="100%"
+            display="flex"
+            flexDirection="column"
+            bgcolor="#008F11"
+            mx="auto"
+        >
+            <CatholicLoremIpsum data={data}/>
+        </Box>);
 }
+*/
 
 /**
  * Home page of the app.
@@ -140,7 +34,8 @@ function Home(): JSX.Element {
             {/* The page's head */}
             <Head>
                 <title>Catholic Lorem Ipsum</title>
-                <meta name="description" content="This is a site to generate catholic lorem ipsum, which is to say lorem ipsum with latin prayers instead." />
+                <meta name="description" content={"This is a site to generate catholic lorem ipsum, which is to say" +
+                    "lorem ipsum with latin prayers instead."} />
             </Head>
 
             {/* Content */}

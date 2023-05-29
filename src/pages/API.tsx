@@ -1,33 +1,30 @@
+import * as React from "react";
+import { useEffect } from "react";
+
 import Head from "next/head";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+
 import Footer from "@/components/Footer";
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Container from '@mui/material/Container';
-import AdbIcon from '@mui/icons-material/Adb';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import Avatar from '@mui/material/Avatar';
-import CatholicLoremIpsum from "@/pages/CatholicLoremIpsum";
-import {useEffect, useState} from "react";
+import CatholicLoremIpsum from "@/components/CatholicLoremIpsum/CatholicLoremIpsum";
+
+import type RequestData from "../lib/shared/RequestData.interface";
+
 
 /**
- * API page of the app.
+ * Api page of the app.
  */
-function API(): JSX.Element {
+function Api(): JSX.Element {
 
     const [data, setData] = React.useState<string[]>([]);
 
     useEffect(() => {
-        const response = fetch('https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=5').then((response) => {
-             response.json().then((myData) => setData(myData.paragraphs));
-        });
+        void fetch("https://catholic-lorem-ipsum.vercel.app/api/catholic-lorem-ipsum?paragraphs=5")
+            .then((responseJson) => {
+                void responseJson.json()
+                    .then((myData: RequestData) => setData(myData.paragraphs));
+            });
     }, []);
 
     return (
@@ -35,7 +32,8 @@ function API(): JSX.Element {
             {/* The page's head */}
             <Head>
                 <title>API</title>
-                <meta name="description" content="This is a site to generate catholic lorem ipsum, which is to say lorem ipsum with latin prayers instead." />
+                <meta name="description" content={"This is a site to generate catholic lorem ipsum, which is to say"
+                    + " lorem ipsum with latin prayers instead."} />
             </Head>
 
             {/* Content */}
@@ -68,20 +66,22 @@ function API(): JSX.Element {
                         To use the Catholic Lorem Ipsum API, here&apos;s what you should do:
                     </Typography>
 
-                    <Box width="100%"
-                         maxWidth="800px"
-                         height="100%"
-                         display="flex"
-                         flexDirection="column"
-                         mx="auto"
-                         bgcolor="#0D0208">
+                    <Box
+                        width="100%"
+                        maxWidth="800px"
+                        height="100%"
+                        display="flex"
+                        flexDirection="column"
+                        mx="auto"
+                        bgcolor="#0D0208"
+                    >
                         <Typography component="p" fontSize="18px" color="#26A347">
                             catholic-lorem-ipsum:
                         </Typography>
-                        <Typography component="p" fontSize="18px" color="#26A347" sx={{marginLeft: 10}}>
+                        <Typography component="p" fontSize="18px" color="#26A347" sx={{ marginLeft: 10 }}>
                             Arguments: paragraphs (type: number)
                         </Typography>
-                        <Typography component="p" fontSize="18px" color="#26A347" sx={{marginLeft: 10}}>
+                        <Typography component="p" fontSize="18px" color="#26A347" sx={{ marginLeft: 10 }}>
                             Return: lorem ipsum content (type: json array of prayer paragraphs)
                         </Typography>
 
@@ -91,21 +91,23 @@ function API(): JSX.Element {
                         Example usage:
                     </Typography>
 
-                    <Typography component="p" fontSize="16px" sx={{marginBottom: 3}}>
+                    <Typography component="p" fontSize="16px" sx={{ marginBottom: 3 }}>
                         /api/catholic-lorem-ipsum?paragraphs=5
                     </Typography>
 
-                    <Typography component="p" fontSize="16px" sx={{marginBottom: 3}}>
+                    <Typography component="p" fontSize="16px" sx={{ marginBottom: 3 }}>
                         The following would be a possible result:
                     </Typography>
 
-                    <Box width="100%"
-                         maxWidth="800px"
-                         height="100%"
-                         display="flex"
-                         flexDirection="column"
-                         bgcolor="#008F11"
-                         mx="auto">
+                    <Box
+                        width="100%"
+                        maxWidth="800px"
+                        height="100%"
+                        display="flex"
+                        flexDirection="column"
+                        bgcolor="#008F11"
+                        mx="auto"
+                    >
                         <CatholicLoremIpsum data={data}/>
                     </Box>
                 </Box>
@@ -117,4 +119,4 @@ function API(): JSX.Element {
     );
 }
 
-export default API;
+export default Api;

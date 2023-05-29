@@ -1,17 +1,20 @@
+import * as React from "react";
+
 import Head from "next/head";
-import { createEmotionCache } from "@/lib/createEmotionCache";
-import CssBaseline from "@mui/material/CssBaseline";
+import Image from "next/image";
+
 import { CacheProvider } from "@emotion/react";
+
+import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
+
+import NavBar from "../components/NavBar/NavBar";
+import logoIcon from "../../public/icons/cliLogo.png";
+import { createEmotionCache } from "@/lib/createEmotionCache";
 import theme from "@/themes/default_theme";
 
-import type { AppProps } from "next/app";
 import type { EmotionCache } from "@emotion/cache";
-import NavBar from "./NavBar";
-import logoIcon from "../../public/icons/cliLogo.png";
-import Image from "next/image";
-import Box from "@mui/material/Box";
-import * as React from "react";
+import type { AppProps } from "next/app";
 
 
 // Client-side Emotion cache, shared for the whole session of the user in the browser. This is only used if the server
@@ -35,7 +38,7 @@ export default function MyApp({
     Component,
     pageProps,
     emotionCache=clientSideEmotionCache,
-}: MyAppProps) {
+}: MyAppProps): JSX.Element {
     return (
         <>
             {/* Head shared by all pages */}
@@ -52,11 +55,14 @@ export default function MyApp({
             </Head>
 
 
-            <Image src={logoIcon}
-                   alt="site logo"
-                   fill={true}
-                   style={{marginTop: 100,
-                           opacity: 0.1}}
+            <Image
+                src={logoIcon}
+                alt="site logo"
+                fill={true}
+                style={{
+                    marginTop: 100,
+                    opacity: 0.1,
+                }}
             />
 
 
