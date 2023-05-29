@@ -6,8 +6,8 @@ import Head from "next/head";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import Footer from "@/components/Footer";
 import CatholicLoremIpsum from "@/components/CatholicLoremIpsum/CatholicLoremIpsum";
+import Footer from "@/components/Footer";
 
 import type RequestData from "../lib/shared/RequestData.interface";
 

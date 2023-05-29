@@ -8,8 +8,8 @@ import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
-import NavBar from "../components/NavBar/NavBar";
 import logoIcon from "../../public/icons/cliLogo.png";
+import NavBar from "../components/NavBar/NavBar";
 import { createEmotionCache } from "@/lib/createEmotionCache";
 import theme from "@/themes/default_theme";
 
